@@ -9,7 +9,7 @@ project:
 
 website:
   title: "Texas Crime & Justice Center"
-  site-url: ""            # fill in once GitHub Pages / domain is set up
+  site-url: "https://txst-tcjc.github.io/website/"
   page-navigation: false
   navbar:
     background: "#F4EFE6"   # TCJC sand ($tcjc-sand in theme.scss), same as the contact form panel
