@@ -1,0 +1,91 @@
+---
+pagetitle: "Texas Crime and Justice Center"
+---
+
+```{r}
+source("_common.R"); s <- site_stats()
+```
+
+::: {.hero .column-screen}
+::: {.hero-inner}
+[School of Criminal Justice and Criminology · Texas State University]{.eyebrow}
+
+# Texas Crime and Justice Center
+
+[The Texas Crime and Justice Center (TCJC) partners with agencies, policymakers, and communities to bring evidence to bear on crime and justice across Texas, the Southwest, and the nation.]{.lead}
+
+[Our research](publications.qmd){.btn .btn-gold} [Partner with us](work-with-us.qmd){.btn .btn-ghost}
+:::
+:::
+
+<!-- ::: {.section .column-page}
+
+## Four goals guide the center
+
+::: {.goal-grid}
+::: {.goal-card}
+[01]{.num}
+
+### Inform policy
+
+Work with public agencies, NGOs, the legislature, and the private sector to identify pressing criminal justice issues and bring existing and new knowledge to them.
+:::
+::: {.goal-card}
+[02]{.num}
+
+### Partner with agencies
+
+Help criminal justice agencies identify and implement evidence-based practices that improve their outcomes.
+:::
+::: {.goal-card}
+[03]{.num}
+
+### Build new knowledge
+
+Produce research on best practices that benefits the field well beyond our partner agencies.
+:::
+::: {.goal-card}
+[04]{.num}
+
+### Raise our profile
+
+Increase the visibility of the criminal justice research enterprise at Texas State University.
+:::
+:::
+::: -->
+
+::: {.section .column-page}
+## Recent updates
+
+::: {.updates-grid}
+::: {.update-col}
+### News
+
+```{r}
+#| results: asis
+update_list("news", empty = "News from the center is on the way.")
+```
+:::
+
+::: {.update-col}
+### Research
+
+```{r}
+#| results: asis
+update_list("publications", empty = "Recent research from our fellows is on the way.")
+```
+:::
+:::
+:::
+
+```{r}
+#| results: asis
+# Stats strip: show only counts that are above zero, computed from data/*.yml
+st <- list(c(s$fellows, "Research fellows"), c(s$projects, "Active projects"), c(s$grants_n, "Funded grants"))
+st <- Filter(function(x) as.numeric(x[1]) > 0, st)
+if (length(st) > 1) {
+  cat('<div class="section-band column-screen"><div class="section"><span class="kicker">By the numbers</span><div class="stats">')
+  for (x in st) cat(sprintf('<div class="stat"><span class="n">%s</span> <span class="l">%s</span></div>', x[1], x[2]))
+  cat('</div></div></div>')
+}
+```

@@ -1,0 +1,49 @@
+# TCJC website: Quarto project configuration
+# Rebuild: from this folder run `quarto render` (or `quarto preview` while editing).
+# Content lives in data/*.yml; pages are layout only. See README.md.
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - images/
+
+website:
+  title: "Texas Crime & Justice Center"
+  site-url: ""            # fill in once GitHub Pages / domain is set up
+  page-navigation: false
+  navbar:
+    background: "#F4EFE6"   # TCJC sand ($tcjc-sand in theme.scss), same as the contact form panel
+    foreground: "#2B2A29"
+    title: "TCJC"
+    left:
+      - href: about.qmd
+        text: About
+      - href: people.qmd
+        text: People
+      - text: Research          # dropdown menu
+        menu:
+          - href: publications.qmd
+            text: Publications
+          - href: projects.qmd
+            text: Projects & Grants
+      - href: work-with-us.qmd
+        text: Work With Us
+  page-footer:
+    background: "#F4EFE6"   # TCJC sand, matches the navbar
+    foreground: "#2B2A29"
+    left: "&copy; Texas Crime and Justice Center · Texas State University"
+    right: "Hines Academic Center · San Marcos, TX 78666"
+
+format:
+  html:
+    theme:
+      light: [cosmo, theme.scss]
+    toc: false
+    page-layout: full
+    smooth-scroll: true
+    link-external-newwindow: true
+
+execute:
+  echo: false
+  warning: false
+  message: false

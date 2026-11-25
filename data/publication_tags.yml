@@ -1,0 +1,59 @@
+# publication_tags.yml: hand-curated additions to publications pulled from ORCID.
+# Matched to publications by DOI. fetch_publications.R merges these in on every run.
+#   topics: tags shown under the item and in the Research page sidebar
+#   hide: true  -> leave this item off the site
+#   type: override the automatic type (Journal article | Book | Book chapter | Brief | Preprint | Report)
+# DRAFT topic tags below were proposed by Claude from titles; edit freely.
+- doi: 10.1186/s40163-026-00293-x
+  topics: [technology, body-worn cameras]
+- doi: 10.4324/9781003671312-14
+  topics: [technology]
+- doi: 10.21428/cb6ab371.67a771e2
+  topics: [technology, police attitudes]
+- doi: 10.1111/1745-9133.70018
+  topics: [technology, body-worn cameras]
+- doi: 10.1007/s12103-025-09857-0
+  topics: [technology, body-worn cameras, police attitudes]
+- doi: 10.21428/cb6ab371.d88be0db
+  topics: [de-escalation]
+- doi: 10.21428/cb6ab371.c691ef98
+  topics: [technology]
+- doi: 10.1007/s11292-025-09711-7
+  topics: [technology, body-worn cameras, police attitudes]
+- doi: 10.21428/cb6ab371.45f5258f
+  topics: [technology, body-worn cameras]
+- doi: 10.1007/s11292-023-09584-8
+  topics: [de-escalation, use of force]
+- doi: 10.22215/apb.v1i3.4996
+  topics: [de-escalation, use of force]
+- doi: 10.1016/j.jcrimjus.2024.102308
+  topics: [opioids, police attitudes]
+- doi: 10.22215/apb.v1i2.5010
+  topics: [de-escalation]
+- doi: 10.22215/apb.v1i2.5019
+  topics: [opioids, body-worn cameras]
+- doi: 10.1080/15614263.2023.2267728
+  topics: [officer safety]
+- doi: 10.1093/police/paae107
+  topics: [technology, body-worn cameras, police attitudes]
+- doi: 10.1016/j.jcrimjus.2023.102129
+  topics: [de-escalation]
+- doi: 10.2105/ajph.2022.306918
+  topics: [opioids, body-worn cameras]
+- doi: 10.1108/pijpsm-10-2021-0151
+  topics: [body-worn cameras]
+- doi: 10.1007/s12103-021-09625-w
+  topics: [opioids]
+- doi: 10.1016/j.jcrimjus.2020.101778
+  topics: [opioids, police attitudes]
+- doi: 10.1080/0735648x.2024.2375371
+  topics: [homelessness]
+# Jeff Bumgarner (draft tags)
+- doi: 10.1080/30679125.2026.2674607
+  topics: [federal criminal justice, evidence-based practice]
+- doi: 10.4324/9781003360179-2
+  topics: [federal criminal justice]
+- doi: 10.4324/9781003360179
+  topics: [federal criminal justice]
+- doi: 10.4324/9781003360179-15
+  topics: [federal criminal justice]

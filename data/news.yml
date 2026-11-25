@@ -1,0 +1,4 @@
+# news.yml: center news for the home page "Recent updates" (newest 4 shown).
+# Fields: date (YYYY-MM-DD), title, url (optional), source (optional, e.g. "Texas State News")
+# Hand-edited for now; a script may regenerate this file later.
+[]

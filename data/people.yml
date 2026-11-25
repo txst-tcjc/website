@@ -1,0 +1,30 @@
+# people.yml: one entry per person. This is the ONLY place people info lives.
+# group: leadership | fellow | staff   (controls which section they appear in)
+# photo: file name in images/people/ (leave blank to show initials)
+# scholar: full Google Scholar profile URL      (icon hidden if blank)
+# profile: full university faculty profile URL  (icon hidden if blank)
+# orcid: ORCID iD (0000-0000-0000-0000); scripts/fetch_publications.R pulls their publications from it
+
+- name: "Jeff Bumgarner, Ph.D."
+  role: "Director"
+  group: leadership
+  affiliation: "Professor, School of Criminal Justice and Criminology, Texas State University"
+  email: "jbbumgarner@txstate.edu"
+  photo: ""
+  scholar: "https://scholar.google.com/citations?user=AJeUBlMAAAAJ&hl=en"
+  profile: "https://faculty.txst.edu/profile/2413790"
+  orcid: "0009-0004-5268-0340"   # record lists "Jef Bumgarner", Texas State University
+  bio: ""          # TODO: short bio
+
+- name: "Seth Watts, Ph.D."
+  role: "Research Fellow"
+  group: fellow
+  affiliation: "Assistant Professor, School of Criminal Justice and Criminology, Texas State University"
+  email: "sbwatts@txstate.edu"
+  photo: ""
+  scholar: "https://scholar.google.com/citations?user=_zgKKS0AAAAJ&hl=en"
+  profile: "https://faculty.txst.edu/profile/2630442"
+  orcid: "0000-0002-5108-9055"
+  bio: "Seth studies policing, technology, and public health, with a focus on police responses to the opioid overdose crisis and evidence-based policy."
+
+# Remaining fellows: add as headshots and bios come in from the email request.

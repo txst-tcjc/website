@@ -1,0 +1,68 @@
+---
+title: "Publications"
+---
+
+```{r}
+source("_common.R")
+```
+
+::: {.section .column-page}
+```{r}
+#| results: asis
+# All content comes from data/publications.yml
+pub_browser(per_year = 5)
+```
+:::
+
+```{=html}
+<script>
+// Research page: search box + People/Topics filter chips + per-year "Show more".
+// Filters combine as: search text AND (any selected person) AND (any selected type) AND (any selected topic).
+(function () {
+  const perYear = window.PUBS_PER_YEAR || 5;
+  const search = document.getElementById('pub-search');
+  if (!search) return;                       // no publications yet
+  const chips = [...document.querySelectorAll('.pub-side .chip')];
+  const clearBtn = document.getElementById('pub-clear');
+  const expanded = new Set();                // years where "Show more" was clicked
+
+  function selected(kind) {
+    return chips.filter(c => c.dataset.kind === kind && c.classList.contains('on')).map(c => c.dataset.val);
+  }
+  function matches(li, q, people, topics, types) {
+    if (q && !li.dataset.text.includes(q)) return false;
+    const has = (attr, vals) => !vals.length || vals.some(v => li.dataset[attr].split(' ').includes(v));
+    return has('people', people) && has('topics', topics) && has('type', types);
+  }
+  function render() {
+    const q = search.value.trim().toLowerCase();
+    const people = selected('people'), topics = selected('topics'), types = selected('type');
+    let anyShown = false;
+    document.querySelectorAll('.pub-year').forEach(sec => {
+      const year = sec.dataset.year;
+      const hits = [...sec.querySelectorAll('.pub')].filter(li => matches(li, q, people, topics, types));
+      sec.querySelectorAll('.pub').forEach(li => li.hidden = true);
+      const limit = expanded.has(year) ? hits.length : perYear;
+      hits.forEach((li, i) => li.hidden = i >= limit);
+      sec.hidden = hits.length === 0;
+      anyShown = anyShown || hits.length > 0;
+      const btn = sec.querySelector('.show-more');
+      const extra = hits.length - perYear;
+      btn.hidden = extra <= 0;
+      btn.textContent = expanded.has(year) ? 'Show fewer' : `Show ${extra} more from ${year}`;
+    });
+    document.querySelector('.no-results').hidden = anyShown;
+    clearBtn.hidden = !(q || people.length || topics.length || types.length);
+  }
+  search.addEventListener('input', render);
+  chips.forEach(c => c.addEventListener('click', () => { c.classList.toggle('on'); c.setAttribute('aria-pressed', c.classList.contains('on')); render(); }));
+  document.querySelectorAll('.show-more').forEach(btn => btn.addEventListener('click', () => {
+    const y = btn.closest('.pub-year').dataset.year;
+    expanded.has(y) ? expanded.delete(y) : expanded.add(y);
+    render();
+  }));
+  clearBtn.addEventListener('click', () => { search.value = ''; chips.forEach(c => c.classList.remove('on')); render(); });
+  render();
+})();
+</script>
+```

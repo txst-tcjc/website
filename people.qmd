@@ -1,0 +1,23 @@
+---
+title: "People"
+---
+
+```{r}
+source("_common.R")
+```
+
+::: {.section}
+## Leadership
+
+```{r}
+#| results: asis
+people_grid("leadership")
+```
+
+## Research Fellows
+
+```{r}
+#| results: asis
+people_grid("fellow")
+```
+:::

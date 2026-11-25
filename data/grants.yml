@@ -1,0 +1,6 @@
+# grants.yml: authoritative source for grant amounts and counts.
+# The totals on the home and grants pages are computed from this file;
+# never type a total into a page.
+#   title, funder, pi, year_start, year_end, amount (plain integer), role (prime | subaward), summary
+# Empty until fellows send their current grants.
+[]

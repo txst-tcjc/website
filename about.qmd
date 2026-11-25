@@ -1,0 +1,97 @@
+---
+title: "About the Center"
+---
+
+```{r}
+source("_common.R")
+adv  <- read_data("advisory")
+pubs <- read_data("publications")
+```
+
+::: {.section}
+::: {.mission}
+[Our mission]{.kicker}
+
+To facilitate applied research and the expansion of evidence-based knowledge regarding crime and best practices in response to crime in the region and throughout Texas, the Southwest, and the nation.
+:::
+:::
+
+::: {.section}
+[What guides us]{.kicker}
+
+## Our goals
+
+::: {.about-goals}
+::: {.about-goal}
+[<i class="bi bi-bank"></i>]{.icon}
+
+### Inform policy and practice
+
+Collaborate with public agencies, NGOs, the legislature, other institutions of higher education, and the private sector to identify criminal justice policy and practice issues of broad interest, and inform those issues with existing and new knowledge.
+:::
+
+::: {.about-goal}
+[<i class="bi bi-people"></i>]{.icon}
+
+### Partner with agencies
+
+Work alongside criminal justice agencies to help them identify and implement evidence-based practices that improve their outcomes.
+:::
+
+::: {.about-goal}
+[<i class="bi bi-lightbulb"></i>]{.icon}
+
+### Build new knowledge
+
+Produce new knowledge about best practices that can benefit the field of criminal justice well beyond our partner agencies.
+:::
+
+::: {.about-goal}
+[<i class="bi bi-megaphone"></i>]{.icon}
+
+### Raise our profile
+
+Increase the visibility and renown of the criminal justice research enterprise at Texas State University's School of Criminal Justice and Criminology.
+:::
+:::
+:::
+
+```{r}
+#| results: asis
+# Stats band: every number is counted from data/*.yml, never typed in
+n_topics <- length(unique(unlist(lapply(pubs, `[[`, "topics"))))
+st <- list(c(length(pubs), "Publications"), c(n_topics, "Research topics"), c(length(adv), "Advisory board members"))
+st <- Filter(function(x) as.numeric(x[1]) > 0, st)
+if (length(st)) {
+  cat('<div class="about-band column-screen"><div class="section"><div class="stats">')
+  for (x in st) cat(sprintf('<div class="stat"><span class="n">%s</span> <span class="l">%s</span></div>', x[1], x[2]))
+  cat('</div></div></div>')
+}
+```
+
+::: {.section}
+[Guidance from the field]{.kicker}
+
+## Advisory Board
+
+Our advisory board brings together leaders from law enforcement, local government, higher education, and the nonprofit sector to keep the center's work grounded in the needs of Texas communities.
+
+```{r}
+#| results: asis
+cat('<div class="board-grid">')
+for (a in adv) cat(sprintf('<div class="board-card"><span class="ph">%s</span><div><div class="nm">%s</div><div class="org">%s</div></div></div>',
+                           initials(sub("^(Sheriff|Chief|Councilman) ", "", a$name)), esc(a$name), esc(a$org)))
+cat('</div>')
+```
+:::
+
+::: {.section}
+::: {.cta}
+::: {.cta-text}
+### Have a question research could answer?
+
+We partner with agencies, policymakers, and community organizations across Texas.
+:::
+[Work with us](work-with-us.qmd){.btn .btn-maroon}
+:::
+:::

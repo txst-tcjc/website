@@ -1,0 +1,37 @@
+---
+title: "Projects & Grants"
+---
+
+```{r}
+source("_common.R"); pr <- read_data("projects"); gr <- read_data("grants"); s <- site_stats()
+```
+
+::: {.section}
+## Projects
+
+```{r}
+#| results: asis
+# All content comes from data/projects.yml
+if (!length(pr)) {
+  cat('<p class="tbd">Project profiles are on the way.</p>')
+} else for (p in pr) {
+  cat(sprintf('<div class="item"><h3>%s</h3><div class="meta">%s · %s</div><p>%s</p></div>\n',
+      esc(p$title), esc(paste(unlist(p$people), collapse = ", ")), esc(p$status %||% ""), esc(p$summary %||% "")))
+}
+```
+
+## Grants
+
+```{r}
+#| results: asis
+# All content (and the totals) comes from data/grants.yml
+if (!length(gr)) {
+  cat('<p class="tbd">Our grant portfolio is being compiled.</p>')
+} else {
+  cat(sprintf('<div class="stats"><div class="stat"><span class="n">%d</span> <span class="l">Awards</span></div><div class="stat"><span class="n">%s</span> <span class="l">Total funding</span></div></div>\n\n',
+      s$grants_n, fmt_dollars(s$grants_d)))
+  for (g in gr) cat(sprintf('<div class="item"><h3>%s</h3><div class="meta">%s · %s to %s · %s</div><p>%s</p></div>\n',
+      esc(g$title), esc(g$funder), g$year_start, g$year_end %||% "present", fmt_dollars(as.numeric(g$amount)), esc(g$summary %||% "")))
+}
+```
+:::
